@@ -1,10 +1,10 @@
-package org.spring.memberDAO;
+package org.spring.dao;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.spring.memberDTO.MemberDTO;
+import org.spring.dto.MemberDTO;
 
 
 

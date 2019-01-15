@@ -27,7 +27,7 @@
 			</ul>
 		</form>
 	</div>
-<script src="js/delete.js"></script>
+<script src="/resources/js/delete.js"></script>
 
 </body>
 </html>

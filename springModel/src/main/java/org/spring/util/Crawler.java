@@ -7,7 +7,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import org.spring.memberDTO.CrawlerDTO;
+import org.spring.dto.CrawlerDTO;
 import org.springframework.stereotype.Repository;
 
 @Repository

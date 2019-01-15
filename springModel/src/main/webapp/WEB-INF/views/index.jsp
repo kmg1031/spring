@@ -38,6 +38,7 @@
 			
 			<div class="shortcut">
 				<ul>
+				    <li><a href="fileList.do">파일 목록</a></li>
 				    <li><a href="fileUpload.view">파일 업로드</a></li>
 				    <li><a href="threejsBox.view">Three.js BOX</a></li>
 				    <li><a href="crawler.do">네이버 웹툰 크롤링</a></li>

@@ -1,4 +1,4 @@
-package org.spring.memberController;
+package org.spring.controller;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,4 +1,4 @@
-package org.spring.memberDTO;
+package org.spring.dto;
 
 public class FileDTO {
 	private String fileName;

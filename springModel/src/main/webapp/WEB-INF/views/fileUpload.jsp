@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>file upload</title>
+<title>File Upload</title>
 <link rel="stylesheet" href="/resources/css/reset.css" media="all" />
 <link rel="stylesheet" href="/resources/css/header.css" media="all" />
 </head>

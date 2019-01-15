@@ -1,4 +1,4 @@
-package org.spring.memberDAO;
+package org.spring.dao;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
-import org.spring.memberDTO.FileDTO;
-import org.spring.memberDTO.MemberDTO;
+import org.spring.dto.FileDTO;
+import org.spring.dto.MemberDTO;
 import org.springframework.stereotype.Repository;
 
 @Repository

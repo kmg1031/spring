@@ -20,12 +20,8 @@
     select count(*) from myproject_member where userId = #{userId}
   </select>
   
-  <insert id="join" parameterType="memberDTO"   >  
+  <insert id="join" parameterType="memberDTO" >  
 	insert into myproject_member(userId,userPw,userName) values(#{userId}, md5(#{userPw}), #{userName})
-  </insert>
-  
-  <insert id="file_test" parameterType="org.spring.memberDTO.FileDTO">  
-	insert into file_test(fileName, filePath, fileByte) values(#{fileName}, #{filePath}, #{fileByte})
   </insert>
   
   <select id="login" parameterType="memberDTO" resultType="integer" >
