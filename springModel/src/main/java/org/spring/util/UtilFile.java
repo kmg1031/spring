@@ -34,6 +34,10 @@ public class UtilFile {
 			System.out.println("File Name : " + fileName);
 			System.out.println("File path : " + path);
 			
+			if(!fileName.substring(fileName.lastIndexOf('.')+1,fileName.length()).equals("txt")) {
+				return null;
+			}
+			
 			File file = new File(path);
 			
 			if(fileName != null && !fileName.equals("")) {

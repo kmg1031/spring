@@ -18,7 +18,7 @@ public interface InDAO {
 	
 	public String idCheck(MemberDTO dto);
 	
-	public int DeleteDo(MemberDTO dto);
+	public int Delete(MemberDTO dto, HttpServletRequest request);
 
 	public int update(MemberDTO dto);
 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+
+<mapper namespace="memberMapper">
+  
+  <select id="list" resultType="memberDTO">
+    select * from myproject_member
+  </select>
+
+  <select id="info" resultType="memberDTO">
+    select * from myproject_member where userId = #{userId}
+  </select>
+ 
+  <select id="idCheck" parameterType="memberDTO" resultType="String">
+    select count(*) from myproject_member where userId = #{userId}
+  </select>
+  
+  <insert id="join" parameterType="memberDTO" >  
+	insert into myproject_member(userId,userPw,userName) values(#{userId}, sha(#{userPw}), #{userName})
+  </insert>
+  
+  <select id="login" parameterType="memberDTO" >
+	select count(*) from myproject_member where userId = #{userId} and userPw = sha(#{userPw}) 
+  </select>
+  
+  <update id="update" parameterType="memberDTO">
+	update myproject_member set userPw = #{userPw} , userName = #{userName} where userId = #{userId}
+  </update>
+  
+  <delete id="delete" parameterType="memberDTO">
+	delete from myproject_member where userId = #{userId}
+  </delete>
+  
+</mapper>

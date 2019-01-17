@@ -45,12 +45,7 @@ public class MemberController {
 	@ResponseBody
 	@RequestMapping(value="delete.do" , method=RequestMethod.POST)
 	public String delete(Model model, HttpServletRequest request) {
-		if(dao.DeleteDo(creDTO(request))==1) {
-			dao.logout(request);
-			return "1";
-		}else {
-			return "0";
-		}
+			return dao.Delete(creDTO(request), request)+"";
 	}
 	@ResponseBody
 	@RequestMapping(value="update.do" , method=RequestMethod.POST)

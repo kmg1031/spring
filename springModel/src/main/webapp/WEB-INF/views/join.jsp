@@ -22,13 +22,13 @@
 			<ul>
 				<li class="title">JOIN</li>
 				<li id="id">
-					<input type="text" name="userId" id="userId" placeholder="ID" />
+					<input type="text" name="userId" id="userId" placeholder="ID 4~16자" />
 					<input type="button" value="아이디 체크" onclick="idChecked()" />
 				</li>
-				<li><input type="password" name="userPw" id="userPw" placeholder="PASSWORD" onkeyup="pwChecked()" /></li>
+				<li><input type="password" name="userPw" id="userPw" placeholder="PASSWORD 4~16자" onkeyup="pwChecked()" /></li>
 				<li><input type="password" name="userPwCheck" id="userPwCheck" placeholder="PASSWORD CHECK" onkeyup="pwChecked()"/></li>
 				<li id="pw"><span id="pwCheck">비밀번호를 확인해주세요</span></li>
-				<li><input type="text" name="userName" id="userName" placeholder="NAME" /></li>
+				<li><input type="text" name="userName" id="userName" placeholder="NAME 4~16자" /></li>
 				<li><input type="button" value="회원가입" onclick="joinOk()" /></li>
 			</ul>
 

@@ -29,7 +29,14 @@ public class MemberDAO implements InDAO{
 
 	@Override
 	public int join(MemberDTO dto) {
-		return sqlSession.insert("memberMapper.join", dto);
+		if(dto.getUserId().length() >= 4 || dto.getUserId().length() <= 16) {
+			if(dto.getUserPw().length() >= 4 || dto.getUserPw().length() <= 16) {
+				if(dto.getUserName().length() >= 4 || dto.getUserName().length() <= 16) {
+					return sqlSession.insert("memberMapper.join", dto);
+				}	
+			}	
+		}
+		return 0;
 	}
 
 	public int file(FileDTO dto) {
@@ -48,8 +55,13 @@ public class MemberDAO implements InDAO{
 	}
 
 	@Override
-	public int DeleteDo(MemberDTO dto) {
-		return sqlSession.delete("memberMapper.delete", dto);
+	public int Delete(MemberDTO dto, HttpServletRequest request) {
+		if(sqlSession.delete("memberMapper.delete", dto)==1) {
+			logout(request);
+			return 1;
+		}else {
+			return 0;
+		}
 	}
 
 	@Override

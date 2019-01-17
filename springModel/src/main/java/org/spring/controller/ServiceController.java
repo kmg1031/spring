@@ -42,7 +42,7 @@ public class ServiceController {
 		
 		FileDTO dto = utilFile.fileUpload(request, uploadFile);
 
-		System.out.println(dao.fileUpload(dto));
+		if(dto!=null) System.out.println(dao.fileUpload(dto));
 		
 		return "index";
 	}

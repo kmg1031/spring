@@ -21,11 +21,11 @@
   </select>
   
   <insert id="join" parameterType="memberDTO" >  
-	insert into myproject_member(userId,userPw,userName) values(#{userId}, md5(#{userPw}), #{userName})
+	insert into myproject_member(userId,userPw,userName) values(#{userId}, sha(#{userPw}), #{userName})
   </insert>
   
-  <select id="login" parameterType="memberDTO" resultType="integer" >
-	select count(*) from myproject_member where userId = #{userId} and userPw = md5(#{userPw}) 
+  <select id="login" parameterType="memberDTO" resultType="Integer" >
+	select count(*) from myproject_member where userId = #{userId} and userPw = sha(#{userPw}) 
   </select>
   
   <update id="update" parameterType="memberDTO">

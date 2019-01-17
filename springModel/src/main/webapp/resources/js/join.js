@@ -18,8 +18,8 @@ var xhr = new XMLHttpRequest();
 	
 	function idChecked() {
 
-		if (userId.value==null || userId.value=="") {
-			alert("아이디를 입력해주세요");
+		if (userId.value==null || userId.value=="" || userId.value.length > 16 || userId.value.length < 4 ) {
+			alert("아이디를 확인해주세요");
 			userId.focus();
 			return false;
 		}
@@ -75,11 +75,11 @@ var xhr = new XMLHttpRequest();
 			alert("아이디를 확인해주세요");
 			userId.focus();
 			return false;
-		} else if (userPw.value == null || userPw.value == "") {
+		} else if (userPw.value == null || userPw.value == "" || userPw.value.length > 16 || userPw.value.length < 4) {
 			alert("비밀번호를 확인해주세요");
 			userPw.focus();
 			return false;
-		} else if (userName.value == null || userName.value == "") {
+		} else if (userName.value == null || userName.value == "" || userName.value.length > 16 || userName.value.length < 4) {
 			alert("이름을 확인해주세요");
 			userName.focus();
 			return false;
