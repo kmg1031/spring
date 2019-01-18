@@ -6,8 +6,7 @@
 
 // renderer			
 			var renderer = new THREE.WebGLRenderer();
-			renderer.setSize(window.innerWidth, window.innerHeight);
-			window.addEventListener( 'resize', onWindowResize, false );
+			renderer.setSize(800, 600);
 			document.body.appendChild(renderer.domElement);
 
 			var scene = new THREE.Scene();
@@ -25,17 +24,6 @@
 			});
 			var box = new THREE.Mesh(geometry, material);
 			scene.add(box);
-
-//controls
-			var controls = new THREE.OrbitControls( camera, renderer.domElement );
-			controls.target.set( 0, 1, 0 );
-			controls.update();
-
-			function onWindowResize() {
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
-				renderer.setSize( window.innerWidth, window.innerHeight );
-			}
 // guideLine
 			var glMaterial = new THREE.LineBasicMaterial({ color : 0x000000 });
 			var glGeometry = new THREE.Geometry();

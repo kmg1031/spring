@@ -56,7 +56,7 @@ public class MemberController {
 	@RequestMapping(value="list.do" , method=RequestMethod.POST)
 	public String list(Model model, HttpServletRequest request) {
 		request.setAttribute("list",dao.list());
-		return "list";
+		return "bord/list";
 	}
 	private MemberDTO creDTO(HttpServletRequest request) {
 		return new MemberDTO(request.getParameter("userId"), request.getParameter("userPw"), request.getParameter("userName"));

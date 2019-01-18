@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	Boolean code = false;
+	String codeURL = ""; 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,13 +15,10 @@
 
 </head>
 <body>
-<%
-	Boolean code = false;
-	String codeURL = ""; 
-%>
+<div id="wrap">
 	<%@ include file="/resources/js/header.js"%>
 
-<div class="login">
+	<div class="login">
 		<form action="delete.do">
 			<ul>
 				<li class="title">LOGIN</li>
@@ -27,6 +28,9 @@
 			</ul>
 		</form>
 	</div>
+	<div id="footer"></div>
+</div>
+
 <script src="/resources/js/delete.js"></script>
 
 </body>

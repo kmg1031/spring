@@ -27,28 +27,30 @@
 		</ul>
 	</form>
 </div>
-	<script type="text/javascript">
-		var frm = document.frm
-		var uploadFile = frm.uploadFile;
-		var btnSubmit = frm.btnSubmit;
+
+	<script>
+		
+		var frm = document.getElementById("frm");
+		var uploadFile = document.getElementById("uploadFile");
+		var btnSubmit = document.getElementById("btnSubmit");
 		btnSubmit.addEventListener("click", fileCheck);
 
-		function fileCheck(frm) {
+		function fileCheck() {
 
 			var file = uploadFile.value;
-			var fileExt = file.substring(file.lastIndexOf('.') + 1); //파일의 확장자를 구합니다.
+			var fileExt = file.substring(file.lastIndexOf('.') + 1); //파일의 확장자를 구합니다
 			var bSubmitCheck = true;
 
 			if (!file) {
 				alert("파일을 선택하여 주세요!");
 				return;
 			}
-			if (!(fileExt.toUpperCase() == "txt")) {
+			if (!(fileExt.toUpperCase() == "TXT")) {
 				alert("text 파일만 업로드 하실 수 있습니다!");
 				return;
 			}
 			alert("파일 업로드를 시작합니다.");
-			frm.submit;
+			frm.submit();
 		}
 	</script>
 </body>

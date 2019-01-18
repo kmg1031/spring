@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	Boolean code = false;
+	String codeURL = ""; 
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +14,7 @@
 <link rel="stylesheet" href="/resources/css/join.css" media="all" />
 </head>
 <body>
-<%
-	Boolean code = false;
-	String codeURL = ""; 
-%>
+<div id="wrap">
 	<%@ include file="/resources/js/header.js"%>
 
 	<div class="join">
@@ -34,7 +35,7 @@
 
 		</form>
 	</div>
-
+</div>
 <script src="/resources/js/join.js"></script>
 </body>
 </html>

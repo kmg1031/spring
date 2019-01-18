@@ -38,10 +38,6 @@ public class MemberDAO implements InDAO{
 		}
 		return 0;
 	}
-
-	public int file(FileDTO dto) {
-		return sqlSession.insert("memberMapper.file_test", dto);
-	}
 	
 	@Override
 	public int login(MemberDTO dto , HttpServletRequest request) {

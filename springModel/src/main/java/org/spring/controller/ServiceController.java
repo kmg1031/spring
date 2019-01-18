@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.spring.dao.FileDAO;
@@ -60,13 +61,9 @@ public class ServiceController {
 	}
 	
 	@RequestMapping(value="fileList.do" , method=RequestMethod.GET)
-	public ModelAndView fileList(){
-	
-		ArrayList<FileDTO> fileList = dao.getFileList();
-		
-		System.out.println(fileList.get(1).getFileName());
-		
-		return new ModelAndView("fileList", "fileList", fileList);
+	public String fileList(ModelAndView mv, HttpServletRequest request){
+			request.setAttribute("fileList", dao.getFileList());
+		return "fileList";
 	}
 	
 }
