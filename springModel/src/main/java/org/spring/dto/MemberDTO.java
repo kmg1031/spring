@@ -1,6 +1,6 @@
 package org.spring.dto;
 
-public class MemberDTO {
+public class MemberDTO{
 	private String userId;
 	private String userPw;
 	private String userName;

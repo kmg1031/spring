@@ -1,6 +1,6 @@
 package org.spring.dto;
 
-public class CrawlerDTO {
+public class CrawlerDTO{
 	private String src;
 	private String href;
 	private String title;

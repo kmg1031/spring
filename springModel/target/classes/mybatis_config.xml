@@ -9,6 +9,8 @@
 	<typeAliases>
 		<typeAlias type="org.spring.dto.MemberDTO" alias="memberDTO" />
 		<typeAlias type="org.spring.dto.FileDTO" alias="fileDTO" />
+		<typeAlias type="org.spring.dto.BordDTO" alias="bordDTO"/>
+		<typeAlias type="org.spring.dto.PageDTO" alias="pageDTO"/>
 	</typeAliases>
 
 </configuration>

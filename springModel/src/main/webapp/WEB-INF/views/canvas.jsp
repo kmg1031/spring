@@ -17,7 +17,6 @@
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css"
 	media="all" />
 <link rel="stylesheet" href="/resources/css/reset.css" media="all" />
-<script src="js/jquery-3.3.1.min.js"></script>
 
 </head>
 <body>
@@ -42,6 +41,8 @@
 		</div>
 		<div id="footer"></div>
 	</div>
+	
+	<script src="/resources/js/jquery-3.3.1.min.js"></script>
 	<script src="/resources/js/canvas.js"></script>
 	<script>
 		var bord = document.getElementById('bord');

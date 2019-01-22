@@ -1,6 +1,6 @@
 package org.spring.dto;
 
-public class FileDTO {
+public class FileDTO{
 	private String fileName;
 	private String filePath;
 	private long fileByte;

@@ -15,7 +15,7 @@ public class ViewController {
 		return "index";
 	}
 	
-	@RequestMapping(value="/*.view" , method=RequestMethod.GET)
+	@RequestMapping(value="*/*.view" , method=RequestMethod.GET)
 	public String view(Model model, HttpServletRequest request) {
 		String uri=request.getRequestURI();
 		String path=request.getContextPath();
@@ -23,5 +23,14 @@ public class ViewController {
 		System.out.println(basicURI.substring(1,basicURI.length()-5));
 		return basicURI.substring(1,basicURI.length()-5);
 	}
+	@RequestMapping(value="*.view" , method=RequestMethod.GET)
+	public String view2(Model model, HttpServletRequest request) {
+		String uri=request.getRequestURI();
+		String path=request.getContextPath();
+		String basicURI=uri.substring(path.length());
+		System.out.println(basicURI.substring(1,basicURI.length()-5));
+		return basicURI.substring(1,basicURI.length()-5);
+	}
+	
 	
 }

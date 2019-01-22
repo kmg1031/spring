@@ -2,9 +2,6 @@ package org.spring.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.spring.dao.FileDAO;
@@ -36,27 +33,17 @@ public class ServiceController {
 	
 	@RequestMapping(value="/fileUpload.do" , method=RequestMethod.POST)
 	public String fileUpload(@RequestParam("uploadFile") MultipartFile uploadFile,MultipartHttpServletRequest request){
-		
 		System.out.println("reAddProCtrl uploadFile : " + uploadFile);
-
 		UtilFile utilFile = new UtilFile();
-		
 		FileDTO dto = utilFile.fileUpload(request, uploadFile);
-
 		if(dto!=null) System.out.println(dao.fileUpload(dto));
-		
 		return "index";
 	}
+	
 	@RequestMapping(value="fileDownload.do" , method=RequestMethod.GET)
 	public ModelAndView fileDownload(@RequestParam("fileName") String fileName){
-		
-		FileDTO dto = new FileDTO(fileName, "", 0);
-		
+		FileDTO dto = new FileDTO(fileName, "", 0);	
 		File downFile = new File(dao.getFilePath(dto));
-		
-		System.out.println("controller fileDownload fileName : " + fileName);
-		System.out.println("controller fileDownload downFile Path : " + downFile.getAbsolutePath());
-		
 		return new ModelAndView("fileDownload", "downloadFile", downFile);
 	}
 	
@@ -67,3 +54,10 @@ public class ServiceController {
 	}
 	
 }
+
+
+
+
+
+
+
