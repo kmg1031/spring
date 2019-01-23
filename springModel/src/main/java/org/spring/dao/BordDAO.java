@@ -42,7 +42,6 @@ public class BordDAO{
 				pageNow = pageMax;
 			}
 		}
-		
 		int pageStart = (pageNow - 1) / contentCount + 1;
 		int pageEnd = pageStart + pageCount - 1;
 		pageEnd = pageEnd > pageMax ? pageMax : pageEnd;
@@ -50,13 +49,10 @@ public class BordDAO{
 		int contentStart = (pageNow-1) * 10;
 		int contentEnd = contentStart + 10;
 		
-		System.out.println(pageNow);
-		System.out.println(pageStart);
-		System.out.println(contentStart);
-		System.out.println(contentEnd);
 		return new PageDTO(pageNow, pageStart, pageEnd, pageMax, contentStart, contentEnd);
 
 	}
+	
 	public BordDTO info(BordDTO dto) {
 		return sqlSession.selectOne("bordMapper.info", dto);
 	}
@@ -64,12 +60,23 @@ public class BordDAO{
 	public int write(BordDTO dto) {
 		return sqlSession.insert("bordMapper.write",dto);
 	}
-	public int delete(BordDTO dto) {
-		return sqlSession.delete("bordMapper.delete", dto);
+	
+	public int delete(BordDTO dto, String sessionId) {
+		BordDTO info = sqlSession.selectOne("bordMapper.info", dto);
+		if(info.getUserId().equals(sessionId)) {
+			return sqlSession.delete("bordMapper.delete", dto);
+		}else {
+			return 0;
+		}
 	}
-
-	public int update(BordDTO dto) {
-		return sqlSession.update("bordMapper.update", dto);
+	
+	public int update(BordDTO dto, String sessionId) {
+		BordDTO info = sqlSession.selectOne("bordMapper.info", dto);
+		if(info.getUserId().equals(sessionId)) {
+			return sqlSession.update("bordMapper.update", dto);
+		}else {
+			return 0;
+		}
 	}
 	public int contentMax() {
 		return sqlSession.selectOne("bordMapper.contentMax");

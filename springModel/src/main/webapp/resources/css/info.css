@@ -2,7 +2,7 @@
 
 .info{
 	width:500px;
-	height: 600px;
+	height: auto;
 	margin:0 auto;
 	
 }
@@ -10,9 +10,9 @@
 .info ul li{
 	margin: 0 auto;
 	border-bottom: 1px solid #ccc;
-	margin-top:20px; 
+	margin-top:10px; 
 	width:100%;
-	height: 35px;
+	height: auto;
 	text-indent: 5px;
 	border: 0; 
 }
@@ -23,4 +23,25 @@
 	text-align: center;
 	margin:10px auto;
 	padding:20px 0;
+}
+.info ul li span{
+	width :70px;
+	display: inline-block;
+	font-size: 15px;
+}
+.info ul li textarea{
+	margin: 10px auto;	
+	width:99%;
+	height: 300px;
+}
+.info ul li input{
+	
+}
+.info ul li input[type=button]{
+	float : right;
+	margin-left : 10px;
+}
+.info ul li input[disabled=disabled]{
+	border: none;
+    background: #fff;
 }

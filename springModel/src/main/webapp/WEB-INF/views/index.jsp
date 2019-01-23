@@ -22,7 +22,7 @@
 					<li><a href="userCheck.view">회원관리</a></li>
 					<li><a href="logout.do">로그아웃</a></li>
 					<% } %>
-					<li><a href="">메뉴</a></li>
+<!-- 				<li><a href="">메뉴</a></li> -->
 				</ul>
 			</div>	
 		</div>

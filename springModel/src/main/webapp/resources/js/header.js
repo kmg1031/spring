@@ -3,7 +3,7 @@
 	<div class="gnb">
 		<ul>
 			<%	if(code) { %> <li><a href="<%=codeURL %>">코드보기</a></li> <% } %>
-			<li><a href="index.view">홈으로</a></li>			
+			<li><a href="/index.view">홈으로</a></li>			
 		</ul>
 	</div>
 </div>

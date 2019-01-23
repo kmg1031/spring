@@ -34,22 +34,22 @@ public class BordController {
 		return "bord/list";
 	}
 	
-	@ResponseBody
-	@RequestMapping(value = "bord/info.do", method=RequestMethod.POST)
-	public BordDTO info(Model model, HttpServletRequest request) {
-		return dao.info(createDTO(request));
+	@RequestMapping(value = "bord/info.do", method=RequestMethod.GET)
+	public String info(Model model, HttpServletRequest request) {
+		model.addAttribute("bordInfo", dao.info(createDTO(request)));
+		return "/bord/info";
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "bord/update.do", method=RequestMethod.POST)
-	public int update(Model model, HttpServletRequest request) {
-		return dao.update(createDTO(request));
+	public int update(HttpServletRequest request, @RequestParam("sessionId") String sessionId) {
+		return dao.update(createDTO(request),sessionId);
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "bord/delete.do", method=RequestMethod.POST)
-	public int delete(Model model, HttpServletRequest request) {
-		return dao.delete(createDTO(request));
+	public int delete(HttpServletRequest request, @RequestParam("sessionId") String sessionId) {
+		return dao.delete(createDTO(request),sessionId);
 	}
 	
 	

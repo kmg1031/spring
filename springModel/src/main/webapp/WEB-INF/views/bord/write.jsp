@@ -25,13 +25,16 @@
 <div id="wrap">
 	<%@ include file="/resources/js/header.js"%>
 	
-	<div id="container">
+	<div class="write">
 		<form action="write.do" method="post" name="frm">
 			<ul>
-				<li><input type="text" name="userId" id="userId" disabled="disabled" value="<%=session.getAttribute("sessionId")%>"/></li>
-				<li><input type="text" name="title" id="title" placeholder="title" /></li>
-				<li><textarea rows="20" cols="20" name="memo" ></textarea></li>
-				<li><input type="button" name="btnSubmit" id="btnSubmit" value="등록" /></li>
+				<li><span>작성자 </span><input type="text" name="userId" id="userId" disabled="disabled" value="<%=session.getAttribute("sessionId")%>"/></li>
+				<li><span>제목 </span><input type="text" name="title" id="title" placeholder="title" /></li>
+				<li><span>내용 </span><textarea  name="memo"  style="resize: none;" ></textarea></li>
+				<li>
+					<input type="button" id="backBtn" value="뒤로가기" />
+					<input type="button" name="btnSubmit" id="btnSubmit" value="등록" />
+				</li>
 			</ul>
 		</form>
 	</div>
@@ -46,6 +49,10 @@
 	var memo = frm.memo;
 	var xhr = new XMLHttpRequest;
 	frm.btnSubmit.addEventListener("click", bordWrite);
+	
+	$("#backBtn").click(function() {
+		history.back();
+	});
 	
 	function bordWrite(){
 		

@@ -10,41 +10,40 @@
 <head>
 <meta charset="UTF-8">
 <title>list</title>
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css"	media="all" />
 <link rel="stylesheet" href="/resources/css/reset.css" media="all" />
 <link rel="stylesheet" href="/resources/css/header.css" media="all" />
 <link rel="stylesheet" href="/resources/css/list.css" media="all" />
-<link rel="stylesheet" href="/resources/css/bootstrap.min.css"
-	media="all" />
 </head>
 <body>
 
 	<%@ include file="/resources/js/header.js"%>
 
 	<div class="listPage">
-		<table class="list table table-hover table-bordered ">
-			<h1 class="title">LIST</h1>
-			<thead>
-				<tr>
-					<th class="no">글번호</th>
-					<th class="userId">글쓴이</th>
-					<th class="title">제목</th>
-					<th class="memo">내용</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${bordList}" var="dto">
-					<tr class="body">
-						<td class="no">${dto.no}</td>
-						<td class="userId">${dto.userId}</td>
-						<td class="title">${dto.title}</td>
-						<td class="memo">${dto.memo}</td>
+		<div class="list">
+			<table class="list table table-hover table-bordered ">
+				<h1 class="title">LIST</h1>
+				<thead>
+					<tr>
+						<th class="no">글번호</th>
+						<th class="userId">글쓴이</th>
+						<th class="title">제목</th>
+						<th class="memo">내용</th>
 					</tr>
-				</c:forEach>
-				<input type="button" id="writeBtn" value="글쓰기" />
-			</tbody>
-
-		</table>
-
+				</thead>
+				<tbody>
+					<c:forEach items="${bordList}" var="dto">
+						<tr class="body">
+							<td class="no">${dto.no}</td>
+							<td class="userId">${dto.userId}</td>
+							<td class="title">${dto.title}</td>
+							<td class="memo">${dto.memo}</td>
+						</tr>
+					</c:forEach>
+					<input type="button" id="writeBtn" value="글쓰기" />
+				</tbody>
+			</table>
+		</div>
 		<div class="page">
 			<c:if test="${pageDTO.pageNow!=1}">
 				<a value="1">[<<]</a>
@@ -75,15 +74,23 @@
 
 	<script src="/resources/js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript">
-		var $writeBtn = $("#writeBtn");
-		$writeBtn.click(function() {
+		
+		$("#writeBtn").click(function() {
 			location.href = "write.view";
 		})
+				
+		$(".list").on("click","tr.body",function(e){
+			e.stopPropagation()
+			location.href = "/bord/info.do?no=" + $(this).children(".no").text(); 
+		})
+		
 
-		$("a").on("click", function() {
+		$(".page a").on("click", function() {
 			event.preventDefault();
 			location.href = "/bord/list.do?page=" + $(this).attr('value');
 		});
+		
+		
 	</script>
 </body>
 </html>
