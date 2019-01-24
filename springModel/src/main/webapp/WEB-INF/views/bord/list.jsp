@@ -31,6 +31,12 @@
 						<th class="memo">내용</th>
 					</tr>
 				</thead>
+				<c:if test="${bordList eq null}">
+				<tbody>
+					<tr><td>게시글이 없습니다</th></tr>
+				</tbody>
+				</c:if>
+				<c:if test="${bordList ne null}">
 				<tbody>
 					<c:forEach items="${bordList}" var="dto">
 						<tr class="body">
@@ -42,8 +48,10 @@
 					</c:forEach>
 					<input type="button" id="writeBtn" value="글쓰기" />
 				</tbody>
+				</c:if>
 			</table>
 		</div>
+		<c:if test="${bordList ne null}">
 		<div class="page">
 			<c:if test="${pageDTO.pageNow!=1}">
 				<a value="1">[<<]</a>
@@ -67,9 +75,9 @@
 				<a value="${pageDTO.pageNow+1}">[>]</a>
 				<a value="${pageDTO.pageMax}">[>>]</a>
 			</c:if>
-
+		
 		</div>
-
+		</c:if>
 	</div>
 
 	<script src="/resources/js/jquery-3.3.1.min.js"></script>

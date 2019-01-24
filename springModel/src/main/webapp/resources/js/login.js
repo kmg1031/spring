@@ -1,14 +1,16 @@
 var xhr=new XMLHttpRequest();
 var userId = document.getElementById("userId");
 var userPw = document.getElementById("userPw");
+var re = /^[a-zA-Z0-9]{4,16}$/;
+
 
 function loginOk() {
 
-	if (userId.value == null || userId.value == "") {
+	if (re.test(userId.value)) {
 		alert("아이디를 확인해주세요");
 		userId.focus();
 		return false;
-	} else if (userPw.value == null || userPw.value == "") {
+	} else if (re.test(userPw.value)) {
 		alert("비밀번호을 확인해주세요");
 		userPw.focus();
 		return false;

@@ -14,6 +14,13 @@ a{
 	text-decoration:none;
 	color:#000;
 }
+#wrap{
+	width: 100%;
+	height: 100%;
+	background: url("/resources/img/bg_computer.jpg");
+	background-attachment: fixed;
+}
+
 /* input box color */
 input:-webkit-autofill {
 	-webkit-box-shadow: 0 0 0 30px #fff inset ;

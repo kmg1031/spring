@@ -19,7 +19,7 @@
 					<li><a href="join.view">회원가입</a></li>
 					<li><a href="login.view">로그인</a></li>
 					<% }else{ %>
-					<li><a href="userCheck.view">회원관리</a></li>
+<!-- 				<li><a href="userCheck.view">회원관리</a></li> -->
 					<li><a href="logout.do">로그아웃</a></li>
 					<% } %>
 <!-- 				<li><a href="">메뉴</a></li> -->
@@ -30,7 +30,7 @@
 		<div id="container">
 			
 			<div class="title">
-				<img src="/resources/img/bord_wood.jpg" alt="나무벽" />
+<!--			<img src="/resources/img/bord_wood.jpg" alt="나무벽" /> -->
 				<h1 class="logo"></h1>
 			</div>
 			<!-- 업데이트 예정 -->

@@ -4,9 +4,11 @@ var xhr = new XMLHttpRequest();
 	var userPw = document.getElementById("userPw");
 	var userPwCheck = document.getElementById("userPwCheck");
 	var userIdSave="";
+	var re = /^[a-zA-Z0-9]{4,16}$/; //아이디 정규식
+	
 	
 	userId.addEventListener('change',function(){
-			idCheckOk=false;
+		idCheckOk=false;
 	});
 	userPw.addEventListener('change',function(){
 		pwChecked();
@@ -17,8 +19,7 @@ var xhr = new XMLHttpRequest();
 	
 	
 	function idChecked() {
-
-		if (userId.value==null || userId.value=="" || userId.value.length > 16 || userId.value.length < 4 ) {
+		if (!re.test(userId.value)) {
 			alert("아이디를 확인해주세요");
 			userId.focus();
 			return false;
@@ -32,7 +33,6 @@ var xhr = new XMLHttpRequest();
 				"application/x-www-form-urlencoded;charset=utf-8")
 		xhr.onreadystatechange = idCheckedOk;
 		xhr.send(data);
-
 	}
 
 	function idCheckedOk() {
@@ -75,11 +75,11 @@ var xhr = new XMLHttpRequest();
 			alert("아이디를 확인해주세요");
 			userId.focus();
 			return false;
-		} else if (userPw.value == null || userPw.value == "" || userPw.value.length > 16 || userPw.value.length < 4) {
+		} else if (!re.test(userPw.value)) {
 			alert("비밀번호를 확인해주세요");
 			userPw.focus();
 			return false;
-		} else if (userName.value == null || userName.value == "" || userName.value.length > 16 || userName.value.length < 4) {
+		} else if (!re.test(userName.value)) {
 			alert("이름을 확인해주세요");
 			userName.focus();
 			return false;
@@ -99,15 +99,12 @@ var xhr = new XMLHttpRequest();
 				"application/x-www-form-urlencoded;charset=utf-8")
 		xhr.onreadystatechange = joinOkFn;
 		xhr.send(data);
-	
 	}
 	
 	function joinOkFn(){
 		
 		if (xhr.status == 200 && xhr.readyState == 4) {
-		
 			var result=xhr.responseText;
-			
 			if(result=="1"){
 				alert("회원가입 성공")
 				location.href="index.view";
