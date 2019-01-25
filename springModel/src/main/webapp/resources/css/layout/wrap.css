@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+#wrap {
+	position:relative;
+    z-index:1;
+}
+#wrap:after {
+	background-image: url("/resources/img/bg_computer.jpg");
+	top: 0;
+	left: 0;
+	position: absolute;
+	background-size: 100%;
+	opacity: 0.5 !important;
+	filter: alpha(opacity = 50);
+	z-index: -1;
+	content: "";
+	width: 100%;
+	height: 100%;
+}

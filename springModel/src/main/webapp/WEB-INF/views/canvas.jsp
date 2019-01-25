@@ -9,20 +9,18 @@
 <head>
 <meta charset="UTF-8">
 <title>canvas BOX</title>
-<link rel="stylesheet" href="/resources/css/header.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/reset.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/wrap.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/header.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/container.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/footer.css" media="all" />
 <link rel="stylesheet" href="/resources/css/canvas.css" media="all" />
-<link rel="stylesheet" href="/resources/css/join.css" media="all" />
-<link rel="stylesheet" href="/resources/css/login.css" media="all" />
-<link rel="stylesheet" href="/resources/css/list.css" media="all" />
-<link rel="stylesheet" href="/resources/css/bootstrap.min.css"
-	media="all" />
-<link rel="stylesheet" href="/resources/css/reset.css" media="all" />
 
 </head>
 <body>
 	<div id="wrap">
 		<%@ include file="/resources/js/header.js"%>
-
+		<div id="container">
 		<div id="box">
 			<div class="canvasFrame">
 				<canvas id="cnvs" width="1000" height="600"></canvas>
@@ -39,7 +37,8 @@
 		<div id="bord">
 			<div id="content" class="content"></div>
 		</div>
-		<div id="footer"></div>
+		</div>
+		<%@ include file="/resources/js/footer.js"%>
 	</div>
 	
 	<script src="/resources/js/jquery-3.3.1.min.js"></script>

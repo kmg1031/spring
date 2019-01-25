@@ -24,7 +24,7 @@ public class BordDAO{
 	
 	public PageDTO getPageDTO(String page) {
 		int contentMax = contentMax();
-		if(contentMax == 0) return null;
+		if(contentMax == 0) return new PageDTO(-1, 0, 0, 0, 0, 0);
 		int contentCount = 10;
 		int pageCount = 10;
 		int pageMax = (contentMax - 1) / contentCount + 1;

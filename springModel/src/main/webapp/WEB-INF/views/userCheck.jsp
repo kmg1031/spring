@@ -5,8 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>userCheck</title>
-<link rel="stylesheet" href="/resources/css/reset.css" media="all" />
-<link rel="stylesheet" href="/resources/css/header.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/reset.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/wrap.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/header.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/container.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/footer.css" media="all" />
 <link rel="stylesheet" href="/resources/css/login.css" media="all" />
 </head>
 <body>

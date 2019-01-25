@@ -7,15 +7,14 @@
  /* container */
 #container{
 }
+#container .tools{
+	
+}
 #container .title{
     width:400px;
     height:250px;
     margin:30px auto 20px;
     position: relative;
-}
-#container .title img{
-    width:100%;
-    height:100%;
 }
 #container .title h1.logo{
 	width:400px;
@@ -24,24 +23,8 @@
 	left:0;
 	text-align: center;
 	line-height: 250px;
-	font-size:60px;
+	font-size:30px;
 }
-#container .search{
-    width: 500px;
-    height:35px;
-    margin: 0 auto;
-}
-#container .search input{
-    width:100%;
-    height: 100%;
-    border: 0px;
-    border-radius: 20px;
-    background:#ccc5;
-    line-height: 35px;
-    font-size: 18px;
-    text-indent: 23px;
-}
-
 #container .shortcut{
     width:410px;
     height:auto;

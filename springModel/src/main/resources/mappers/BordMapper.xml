@@ -19,7 +19,7 @@
 	</delete>
 	
 	<select id="list" parameterType="pageDTO" resultType="bordDTO" >
-		select * from myproject_bord order by no desc limit #{contentStart}, #{contentEnd} 
+		select * from myproject_bord order by no desc limit #{contentStart}, 10 
 	</select>
 	<select id="contentMax" resultType="Integer">
 		select count(*) from myproject_bord

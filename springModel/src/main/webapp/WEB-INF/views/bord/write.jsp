@@ -17,14 +17,17 @@
 <head>
 <meta charset="UTF-8">
 <title>write</title>
-<link rel="stylesheet" href="/resources/css/reset.css" media="all" />
-<link rel="stylesheet" href="/resources/css/header.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/reset.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/wrap.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/header.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/container.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/footer.css" media="all" />
 <link rel="stylesheet" href="/resources/css/write.css" media="all" />
 </head>
 <body>
 <div id="wrap">
 	<%@ include file="/resources/js/header.js"%>
-	
+	<div id="container">
 	<div class="write">
 		<form action="write.do" method="post" name="frm">
 			<ul>
@@ -38,7 +41,8 @@
 			</ul>
 		</form>
 	</div>
-	<div id="footer"></div>
+	</div>
+	<%@ include file="/resources/js/footer.js"%>
 </div>
 
 <script src="/resources/js/jquery-3.3.1.min.js"></script>

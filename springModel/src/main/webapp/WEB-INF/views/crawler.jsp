@@ -11,19 +11,20 @@
 <head>
 <meta charset="UTF-8">
 <title>crawlerEx</title>
-<link rel="stylesheet" href="/resources/css/reset.css" media="all" />
-<link rel="stylesheet" href="/resources/css/header.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/reset.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/wrap.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/header.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/container.css" media="all" />
+<link rel="stylesheet" href="/resources/css/layout/footer.css" media="all" />
 <link rel="stylesheet" href="/resources/css/crawler.css" media="all" />
 </head>
 <body>
 	<div id="wrap">
 		<%@ include file="/resources/js/header.js"%>
-
+		<div id="container">
 		<div class="title">
 			<h1 class="title">네이버 웹툰 크롤링 예제</h1>
-
 		</div>
-
 		<div id="content">
 			<ul>
 				<li class="col"><span>월요일</span> <c:forEach var="var"
@@ -76,10 +77,10 @@
 								alt="${var.title}"></a> <a href="${var.href}">${var.title}</a>
 						</div>
 					</c:forEach></li>
-
 			</ul>
 		</div>
-		<div id="footer"></div>
+		</div>
+		<%@ include file="/resources/js/footer.js"%>
 	</div>
 </body>
 </html>

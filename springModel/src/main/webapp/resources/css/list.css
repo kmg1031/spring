@@ -7,6 +7,12 @@
 	
 }
 
+.listPage .list{
+	
+}
+.listPage .list td.list-empty{
+	text-align: center;
+}
 
 .listPage .page{
 	width:fit-content;
