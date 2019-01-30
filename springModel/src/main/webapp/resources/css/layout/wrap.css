@@ -1,11 +1,15 @@
 @charset "UTF-8";
 
 #wrap {
+	width: 100%;
+	height: auto;
+	min-height: 100%;
 	position:relative;
     z-index:1;
 }
 #wrap:after {
 	background-image: url("/resources/img/bg_computer.jpg");
+	background-attachment: fixed;
 	top: 0;
 	left: 0;
 	position: absolute;

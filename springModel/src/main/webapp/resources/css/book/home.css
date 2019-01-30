@@ -1,0 +1,22 @@
+@charset "EUC-KR";
+#container .bookHome{
+	width: 1000px;
+	margin: 100px auto;
+}
+#container .bookHome ul{
+	overflow: hidden;
+}
+#container .bookHome ul li{
+	width: 32%;
+	height: 250px;
+	margin-right:20px;
+	background: #ccc;
+	float: left;
+	
+	text-align: center;
+	line-height: 250px;
+	font-size: 30px;
+}
+#container .bookHome ul li:last-child {
+	margin-right:0;
+}

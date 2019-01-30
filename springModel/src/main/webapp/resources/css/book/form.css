@@ -1,0 +1,10 @@
+@charset "EUC-KR";
+
+#container form#frm{
+	width: 500px;
+	margin: 100px auto;
+}
+#container form#frm input.btn{
+	float: right;
+	margin-left: 10px;
+}

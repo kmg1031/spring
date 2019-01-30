@@ -9,16 +9,15 @@
 			<% }else{ %>
 			<li><a href="logout.do">로그아웃</a></li>
 			<% } %>
-			<%	if(code) { %> <li><a href="<%=codeURL %>">코드보기</a></li> <% } %>
+			<li><a href="https://github.com/kmg1031/spring">github</a></li>
 			<li class="home" ><a href="/index.view"><img src="/resources/img/home-48px.png" alt="home" /></a></li>			
 		</ul>
 	</div>
 </div>
 <script>
-
+/*
 	var overEvent = document.getElementsByClassName("overEvent")[0];
 	var gnb = document.getElementsByClassName("gnb")[0];
-	
 	
 	function gnbUp(){
 		gnb.style.top = "0";
@@ -26,7 +25,7 @@
 	function gnbDown(){
 		gnb.style.top = "-70px";
 	}
-/*
+
 	window.addEventListener("scroll", function(){
 		if(window.scrollY == 0){
 			gnbUp();
@@ -34,7 +33,7 @@
 			gnbDown();
 		}
 	});
-*/
+
 	overEvent.addEventListener("mouseover", gnbUp);
 	
 	overEvent.addEventListener("mouseout", function(){
@@ -43,5 +42,5 @@
 		}
 	});
 	
-
+*/
 </script>

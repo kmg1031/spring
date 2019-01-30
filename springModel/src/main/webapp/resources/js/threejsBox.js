@@ -7,8 +7,7 @@
 // renderer			
 			var renderer = new THREE.WebGLRenderer();
 			renderer.setSize(800, 600);
-			document.body.appendChild(renderer.domElement);
-
+			document.getElementById("container").appendChild(renderer.domElement);
 			var scene = new THREE.Scene();
 			
 			

@@ -36,7 +36,10 @@
 }
 #header .gnb ul li.home{
 	float: left;
-	margin: 11px;
+	padding: 11px;
+	width:48px;
+	height: 48px;
+	line-height: 0;
 }
 #header .gnb ul li a{
 

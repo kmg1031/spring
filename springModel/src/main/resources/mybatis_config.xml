@@ -11,6 +11,8 @@
 		<typeAlias type="org.spring.dto.FileDTO" alias="fileDTO" />
 		<typeAlias type="org.spring.dto.BordDTO" alias="bordDTO"/>
 		<typeAlias type="org.spring.dto.PageDTO" alias="pageDTO"/>
+		<typeAlias type="org.spring.dto.BookDTO" alias="bookDTO"/>
+		<typeAlias type="org.spring.dto.BookRecordDTO" alias="bookRecordDTO"/>
 	</typeAliases>
 
 </configuration>

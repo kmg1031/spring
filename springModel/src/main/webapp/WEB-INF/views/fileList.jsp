@@ -44,8 +44,8 @@
 			</tbody>
 		</table>
 		</div>
-		</div>
-		<%@ include file="/resources/js/footer.js"%>
 	</div>
+	<%@ include file="/resources/js/footer.js"%>
+</div>
 </body>
 </html>

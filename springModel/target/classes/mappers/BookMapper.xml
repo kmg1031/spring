@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+	book mapper
+	book_list	>> add, delete, checkOut, checkIn
+	book_record >> record
+ -->
+<mapper namespace="bookMapper">
+
+<!-- book_list table -->
+	<insert id="addInfo" parameterType="bookDTO">
+		insert into book_list(bookCood,	bookName, bookAuthor, bookState) values(#{bookCood} , #{bookName}, #{bookAuthor}, 'true')
+	</insert>
+	
+	<update id="checkOut" parameterType="bookDTO">
+		update book_list set bookState = 'false' where bookCood = #{bookCood}
+	</update>
+	<update id="checkIn" parameterType="bookDTO">
+		update book_list set bookState = 'true' where bookCood = #{bookCood}
+	</update>
+	
+	<select id="list" resultType="bookDTO">
+		select * from book_list
+	</select>
+	
+<!-- book_record table -->
+	<insert id="record" parameterType="bookRecordDTO">
+		insert into book_record(userId,	bookCood, bookAction)
+		values(#{userId} , #{bookCood}, #{bookAction})
+	</insert>
+	
+</mapper>

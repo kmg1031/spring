@@ -1,0 +1,16 @@
+@charset "EUC-KR";
+
+#container .listPage{
+	width: 1000px;
+	margin: 50px auto;
+	
+}
+#container .listPage h1.title{
+	text-align: center;
+}
+#container .listPage table{
+	background: #ccc;
+}
+#container .listPage button.btn{
+	float: right;
+}
