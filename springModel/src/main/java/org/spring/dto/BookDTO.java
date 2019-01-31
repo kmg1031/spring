@@ -2,16 +2,16 @@ package org.spring.dto;
 
 public class BookDTO {
 	
-	private String bookCood;
+	private String bookCode;
 	private String bookName;
 	private String bookAuthor;
 	private String bookState;
-	public BookDTO(String bookCood) {
-		this.bookCood = bookCood;
+	public BookDTO(String bookCode) {
+		this.bookCode = bookCode;
 	}
 	
-	public BookDTO(String bookCood, String bookName, String bookAuthor, String bookState) {
-		this.bookCood = bookCood;
+	public BookDTO(String bookCode, String bookName, String bookAuthor, String bookState) {
+		this.bookCode = bookCode;
 		this.bookName = bookName;
 		this.bookAuthor = bookAuthor;
 		this.bookState = bookState;
@@ -19,10 +19,10 @@ public class BookDTO {
 	public BookDTO() {
 	}
 	public String getBookCood() {
-		return bookCood;
+		return bookCode;
 	}
-	public void setBookCood(String bookCood) {
-		this.bookCood = bookCood;
+	public void setBookCood(String bookCode) {
+		this.bookCode = bookCode;
 	}
 	public String getBookName() {
 		return bookName;

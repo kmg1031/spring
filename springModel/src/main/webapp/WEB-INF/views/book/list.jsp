@@ -26,6 +26,15 @@
 	
 	<div id="container">
 	<div class="listPage">
+		<div class="search">
+			<select>
+				<option value="code">코드</option>
+				<option value="name">도서명</option>
+				<option value="author">저자</option>
+			</select>
+			<input type="text" id="keyword" name="keyword" />
+			<input type="text" id="searchBtn" name="searchBtn" />
+		</div>
 		<table class="list table table-hover table-bordered ">
 			<h1 class="title">BOOK LIST</h1>
 			<thead>
@@ -39,7 +48,7 @@
 			<tbody>
 				<c:forEach items="${bookList}" var="dto">
 					<tr class="body">
-						<td class="nicName">${dto.bookCood}</td>
+						<td class="nicName">${dto.bookCode}</td>
 						<td class="title">${dto.bookName}</td>
 						<td class="memo">${dto.bookAuthor}</td>
 						<td>

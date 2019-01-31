@@ -12,24 +12,39 @@
 
 <!-- book_list table -->
 	<insert id="addInfo" parameterType="bookDTO">
-		insert into book_list(bookCood,	bookName, bookAuthor, bookState) values(#{bookCood} , #{bookName}, #{bookAuthor}, 'true')
+		insert into book_list(bookCode,	bookName, bookAuthor, bookState) values(#{bookCode} , #{bookName}, #{bookAuthor}, 'true')
 	</insert>
 	
-	<update id="checkOut" parameterType="bookDTO">
-		update book_list set bookState = 'false' where bookCood = #{bookCood}
+	<update id="checkOut" parameterType="String">
+		update book_list set bookState = 'false' where bookCode = #{0}
 	</update>
-	<update id="checkIn" parameterType="bookDTO">
-		update book_list set bookState = 'true' where bookCood = #{bookCood}
+	<update id="checkIn" parameterType="String">
+		update book_list set bookState = 'true' where bookCode = #{0}
 	</update>
+	
+	<select id="stateCheck" parameterType="String" resultType="String">
+		select bookState from book_list where bookCode = #{0}
+	</select>
 	
 	<select id="list" resultType="bookDTO">
 		select * from book_list
 	</select>
 	
-<!-- book_record table -->
-	<insert id="record" parameterType="bookRecordDTO">
-		insert into book_record(userId,	bookCood, bookAction)
-		values(#{userId} , #{bookCood}, #{bookAction})
-	</insert>
+	<select id="search" resultType="bookDTO">
+		select * from book_list where #{option} like CONCAT('%',#{keyword},'%')
+
+	</select>
 	
+	
+	
+	
+	
+<!-- book_record table -->
+	<insert id="outRecord" parameterType="bookRecordDTO">
+		insert into book_record(userId,	bookCode, bookOutTs, bookInTs) values(#{userId} , #{bookCode}, now(), 0)
+	</insert>
+	<update id="inRecord" parameterType="bookRecordDTO">
+		update book_record set bookInTs = now() where bookCode = #{bookCode}
+	</update>
+
 </mapper>

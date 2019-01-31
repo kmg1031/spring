@@ -29,7 +29,7 @@
 			<form name="frm" id="frm">
 					<div class="form-group">
 						<label>코드</label>
-						<input type="text" class="form-control" id="bookCood" name="bookCood" placeholder="코드" />
+						<input type="text" class="form-control" id="bookCode" name="bookCode" placeholder="코드" />
 					</div>
 					<div class="form-group">
 						<label>도서명</label>
@@ -52,7 +52,7 @@
 <script>
 
 	var $addInfoBtn = $("input#addInfo");
-	var bookCood = document.frm.bookCood;
+	var bookCode = document.frm.bookCode;
 	var bookName = document.frm.bookName;
 	var bookAuthor = document.frm.author;
 	
@@ -65,23 +65,27 @@
 			url : "/book/addInfo.do",
 			type : "post",
 			data : {
-					"bookCood" : bookCood.value,
+					"bookCode" : bookCode.value,
 					"bookName" : bookName.value,
 					"bookAuthor" : bookAuthor.value
 					},
-			done : function(data){
-				alert("성공");
+			success : function(data){
+				if(data=="1") {
+					alert("등록 성공");
+				}else{
+					alert("등록 실패");
+				}
 			},
 			fail : function(data){
-				alert("실패");
+				alert("등록 실패");
 			}
 		});
 	});
 	
 	function check(){
-		var coodPattern = /^[a-zA-Z0-9]{40}$/;
+		var CodePattern = /^[a-zA-Z0-9]{40}$/;
 		var namePattern = /^[a-zA-Z0-9]{1,100}$/;
-		if(!coodPattern.test(bookCood.value)){
+		if(!CodePattern.test(bookCode.value)){
 			alert("코드 오류")
 			return false;
 		}

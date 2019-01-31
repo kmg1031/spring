@@ -7,8 +7,15 @@
 	
 }
 
+.listPage table.list{
+	background: #bfb2a5;
+}
+
 .listPage .list{
 	
+}
+.listPage .list h1.title{
+	text-align: center;
 }
 .listPage .list td.list-empty{
 	text-align: center;

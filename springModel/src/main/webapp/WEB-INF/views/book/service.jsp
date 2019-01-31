@@ -13,7 +13,6 @@
 <link rel="stylesheet" href="/resources/css/layout/footer.css" media="all" />
 <link rel="stylesheet" href="/resources/css/book/form.css" media="all" />
 
-
 </head>
 <body>
 
@@ -29,7 +28,7 @@
 					</div>
 					<div class="form-group">
 						<label>코드</label>
-						<input type="text" class="form-control" id="bookCood" name="bookCood" placeholder="코드" />
+						<input type="text" class="form-control" id="bookCode" name="bookCode" placeholder="코드" />
 					</div>
 					<input type="button" class="btn btn-default" id="backBtn" value="뒤로가기" />
 					<input type="button" class="btn btn-default" id="checkIn" name="checkIn" value="도서 반납" />
@@ -44,62 +43,104 @@
 	<script>
 		var $checkOutBtn = $("input#checkOut");
 		var $checkInBtn = $("input#checkIn");
-		var bookCood = document.frm.bookCood;
+		var bookCode = document.frm.bookCode;
 		var userId = document.frm.userId;
 
 		$("#backBtn").click(function() {
 			history.back();
 		});
-		$checkInBtn.click(function() {
-			if (!check())
-				return false;
-			$.ajax({
-				url : "/book/checkIn.do",
-				type : "post",
-				data : {
-					"bookCood" : bookCood.value,
-					"userId" : userId.value,
-				},
-				done : function(data) {
-					alert("성공");
-				},
-				fail : function(data) {
-					alert("실패");
-				}
-			});
-		});
-
+		
 		$checkOutBtn.click(function() {
-			if (!check())
+			if (!check()){
 				return false;
+			}
+			if(!stateCheck()){
+				alert("대여 중인 도서입니다");
+				return false;
+			}
+				
 			$.ajax({
 				url : "/book/checkOut.do",
 				type : "post",
 				data : {
-					"userId" : userId.value,
+					"bookCode" : bookCode.value,
+					"userId" : userId.value
 				},
-				done : function(data) {
-					alert("성공");
+				success : function(data){
+					if(data=="1") {
+						alert("대여 처리되었습니다");
+					}else{
+						alert("대여 실패");
+					}
 				},
-				fail : function(data) {
-					alert("실패");
+				fail : function(data){
+					alert("대여 실패");
 				}
 			});
 		});
 
-		function check() {
-			var coodPattern = /^[a-zA-Z0-9]{40}$/;
-
-			if (!coodPattern.test(bookCood.value)) {
-				alert("코드 형식이 맞지 않습니다")
+		$checkInBtn.click(function() {
+			if (!check()){
 				return false;
 			}
-			if (!userId.test(bookCood.value)) {
-				alert("아이디 형식이 맞지 않습니다")
+			if(stateCheck()){
+				alert("해당 도서의 대여 이력이 없습니다");
+				return false;
+			}
+			$.ajax({
+				url : "/book/checkIn.do",
+				type : "post",
+				data : {
+					"bookCode" : bookCode.value,
+					"userId" : userId.value
+				},
+				success : function(data){
+					if(data=="1") {
+						alert("반납하였습니다");
+					}else{
+						alert("반납 실패");
+					}
+				},
+				fail : function(data){
+					alert("반납 실패");
+				}
+			});
+		});
+
+		
+		function check(){
+			var CodePattern = /^[a-zA-Z0-9]{40}$/;
+			var namePattern = /^[a-zA-Z0-9]{1,100}$/;
+			if(!CodePattern.test(bookCode.value)){
+				alert("코드 오류")
+				return false;
+			}
+			if(!namePattern.test(userId.value)){
+				alert("영어와 숫자만 입력 가능합니다")
 				return false;
 			}
 			return true;
 		}
+		
+		function stateCheck(){
+			var result;
+			$.ajax({
+				url : "/book/stateCheck.do",
+				type : "POST",
+				async: false,
+				data : {
+					"bookCode" : bookCode.value,
+				},
+				success : function(data){
+					result = data;
+				},
+				fail : function(data){
+					alert("다시 시도해주세요");
+				}
+			});
+			return result=='true';
+		}
+		
 	</script>
 
 </body>

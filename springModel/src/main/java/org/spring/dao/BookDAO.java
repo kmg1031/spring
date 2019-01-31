@@ -1,7 +1,9 @@
 package org.spring.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -22,29 +24,39 @@ public class BookDAO{
 		return sqlSession.insert("bookMapper.addInfo",dto);
 	}
 	
-	public int checkIn(ArrayList<BookDTO> bookCoodList, String userId) {
-		for(BookDTO dto : bookCoodList) {
-			sqlSession.update("bookMapper.checkIn",dto);
-			record(dto.getBookCood(), "checkIn", userId);
+	public int checkOut(ArrayList<BookDTO> bookCodeList, String userId) {
+		for(BookDTO dto : bookCodeList) {
+			sqlSession.update("bookMapper.checkOut", dto.getBookCood());
+			sqlSession.insert("bookMapper.outRecord", new BookRecordDTO(userId, dto.getBookCood()));
 		}
 		return 1;
 	}
-	public int checkOut(ArrayList<BookDTO> bookCoodList, String userId) {
-		for(BookDTO dto : bookCoodList) {
-			sqlSession.update("bookMapper.checkOut",dto);
-			record(dto.getBookCood(), "checkOut", userId);
+	public int checkIn(ArrayList<BookDTO> bookCodeList, String userId) {
+		for(BookDTO dto : bookCodeList) {
+			sqlSession.update("bookMapper.checkIn",dto.getBookCood());
+			sqlSession.update("bookMapper.inRecord", new BookRecordDTO(userId, dto.getBookCood()));
 		}
 		return 1;
 	}
+	
+	public String stateCheck(String bookCode) {
+		return sqlSession.selectOne("bookMapper.stateCheck", bookCode);
+	}
+	
+	
+	
 	public List<BookDTO> list(){
 		List<BookDTO> list = sqlSession.selectList("bookMapper.list");
 		return list;
 	}
 	
-	public int record(String bookCood, String bookAction, String userId) {
-		BookRecordDTO dto = new BookRecordDTO(userId, bookCood, bookAction);
-		return sqlSession.insert("bookMapper.record", dto);
+	public List<BookDTO> search(String option, String keyword){
+		Map<String, String> map = new HashMap<>();
+		map.put("option", option);
+		map.put("keyword", keyword);
+		List<BookDTO> list = sqlSession.selectList("bookMapper.search", map);
+		
+		return list;
 	}
-	
 
 }

@@ -5,18 +5,12 @@ import java.sql.Timestamp;
 public class BookRecordDTO {
 	private int no;
 	private String userId;
-	private String bookCood;
-	private String bookAction;
+	private String bookCode;
 	private Timestamp bookOutTs;
 	private Timestamp bookInTs;
-	public BookRecordDTO(int no, String userId, String bookCood, String bookAction, Timestamp bookOutTs,
-			Timestamp bookInTs) {
-		this.no = no;
+	public BookRecordDTO(String userId, String bookCode) {
 		this.userId = userId;
-		this.bookCood = bookCood;
-		this.bookAction = bookAction;
-		this.bookOutTs = bookOutTs;
-		this.bookInTs = bookInTs;
+		this.bookCode = bookCode;
 	}
 	public int getNo() {
 		return no;
@@ -31,16 +25,10 @@ public class BookRecordDTO {
 		this.userId = userId;
 	}
 	public String getBookCood() {
-		return bookCood;
+		return bookCode;
 	}
-	public void setBookCood(String bookCood) {
-		this.bookCood = bookCood;
-	}
-	public String getBookAction() {
-		return bookAction;
-	}
-	public void setBookAction(String bookAction) {
-		this.bookAction = bookAction;
+	public void setBookCood(String bookCode) {
+		this.bookCode = bookCode;
 	}
 	public Timestamp getBookOutTs() {
 		return bookOutTs;
@@ -54,13 +42,15 @@ public class BookRecordDTO {
 	public void setBookInTs(Timestamp bookInTs) {
 		this.bookInTs = bookInTs;
 	}
+	public BookRecordDTO(int no, String userId, String bookCode, Timestamp bookOutTs, Timestamp bookInTs) {
+		this.no = no;
+		this.userId = userId;
+		this.bookCode = bookCode;
+		this.bookOutTs = bookOutTs;
+		this.bookInTs = bookInTs;
+	}
 	public BookRecordDTO() {
 	}
-	public BookRecordDTO(String userId, String bookCood, String bookAction) {
-		this.userId = userId;
-		this.bookCood = bookCood;
-		this.bookAction = bookAction;
-	}
-	
+
 }
 	

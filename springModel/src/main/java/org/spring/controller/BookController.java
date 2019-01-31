@@ -29,42 +29,76 @@ public class BookController {
 	BookDAO dao;
 
 	@ResponseBody
-	@RequestMapping(value = "book/addInfo.do", method=RequestMethod.POST)
+	@RequestMapping(value = "/book/addInfo.do", method=RequestMethod.POST) // 도서 추가
 	public int addInfo(Model model, HttpServletRequest request) {
 		return dao.addInfo(createDTO(request));
 	}
 	
 	@ResponseBody
-	@RequestMapping(value = "book/checkOut.do", method=RequestMethod.POST)
+	@RequestMapping(value = "book/checkOut.do", method=RequestMethod.POST) // 도서 대여
 	public int checkOut(Model model, HttpServletRequest request) {
-		return dao.checkOut(bookCoodList(request), getUserId(request));
+		if(dao.stateCheck(request.getParameter("bookCode")).equals("true")) {
+			System.out.println(1);
+			return dao.checkOut(bookCodeList(request), getUserId(request));
+		}else {
+			System.out.println(2);
+			return 0;
+		}
+		
 	}
 	@ResponseBody
-	@RequestMapping(value = "book/checkIn.do", method=RequestMethod.POST)
+	@RequestMapping(value = "book/checkIn.do", method=RequestMethod.POST) // 도서 반납
 	public int checkIn(Model model, HttpServletRequest request) {
-		return dao.checkIn(bookCoodList(request), getUserId(request));
+		if(dao.stateCheck(request.getParameter("bookCode")).equals("true")) {
+			return 0;
+		}else {
+			return dao.checkIn(bookCodeList(request), getUserId(request));
+		}
+	}
+	@ResponseBody
+	@RequestMapping(value = "book/stateCheck.do", method=RequestMethod.POST) // 반납여부 확인
+	public String stateCheck(Model model, HttpServletRequest request) {
+		System.out.println(dao.stateCheck(request.getParameter("bookCode")));
+		return dao.stateCheck(request.getParameter("bookCode"));
 	}
 	
-	@RequestMapping(value = "book/list.do", method=RequestMethod.GET)
+	@RequestMapping(value = "book/list.do", method=RequestMethod.GET) // 도서 목록
 	public String list(Model model) {
 		model.addAttribute("bookList", dao.list());
 		return "/book/list";
 	}
 	
-	public String getUserId(HttpServletRequest request) {
-		return (String)request.getSession().getAttribute("sessionId");
+	@RequestMapping(value = "book/search.do", method=RequestMethod.POST) // 도서 목록
+	public String search(Model model, HttpServletRequest request) {
+		String option = request.getParameter("option");
+		String keyword= request.getParameter("keyword");
+		model.addAttribute("bookList", dao.search(option, keyword));
+		return "/book/list";
 	}
 	
-	public BookDTO createDTO(HttpServletRequest request) {
-		return new BookDTO(request.getParameter("bookCood"), request.getParameter("bookName"),request.getParameter("bookAuthor") ,request.getParameter("bookState") );
+	@ResponseBody
+	@RequestMapping(value = "book/searchCrawler.do", method=RequestMethod.POST) // 도서 목록
+	public String searchCrawler(Model model, HttpServletRequest request) {
+		
+		return "/book/list";
 	}
 	
-	public ArrayList<BookDTO> bookCoodList(HttpServletRequest request){
-		ArrayList<BookDTO> bookCoodList = new ArrayList<>();
-		for(String bookCood : request.getParameterValues("bookCood")) {
-			bookCoodList.add(new BookDTO(bookCood));
+	// private
+	
+	private String getUserId(HttpServletRequest request) {
+		return request.getParameter("userId");
+	}
+	
+	private BookDTO createDTO(HttpServletRequest request) {
+		return new BookDTO(request.getParameter("bookCode"), request.getParameter("bookName"),request.getParameter("bookAuthor") ,request.getParameter("bookState") );
+	}
+	
+	private ArrayList<BookDTO> bookCodeList(HttpServletRequest request){
+		ArrayList<BookDTO> bookCodeList = new ArrayList<>();
+		for(String bookCode : request.getParameterValues("bookCode")) {
+			bookCodeList.add(new BookDTO(bookCode));
 		}
-		return bookCoodList;
+		return bookCodeList;
 	}
 
 }
