@@ -26,15 +26,15 @@ public class BookDAO{
 	
 	public int checkOut(ArrayList<BookDTO> bookCodeList, String userId) {
 		for(BookDTO dto : bookCodeList) {
-			sqlSession.update("bookMapper.checkOut", dto.getBookCood());
-			sqlSession.insert("bookMapper.outRecord", new BookRecordDTO(userId, dto.getBookCood()));
+			sqlSession.update("bookMapper.checkOut", dto.getBookCode());
+			sqlSession.insert("bookMapper.outRecord", new BookRecordDTO(userId, dto.getBookCode()));
 		}
 		return 1;
 	}
 	public int checkIn(ArrayList<BookDTO> bookCodeList, String userId) {
 		for(BookDTO dto : bookCodeList) {
-			sqlSession.update("bookMapper.checkIn",dto.getBookCood());
-			sqlSession.update("bookMapper.inRecord", new BookRecordDTO(userId, dto.getBookCood()));
+			sqlSession.update("bookMapper.checkIn",dto.getBookCode());
+			sqlSession.update("bookMapper.inRecord", new BookRecordDTO(userId, dto.getBookCode()));
 		}
 		return 1;
 	}

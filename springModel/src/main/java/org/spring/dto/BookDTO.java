@@ -18,10 +18,10 @@ public class BookDTO {
 	}
 	public BookDTO() {
 	}
-	public String getBookCood() {
+	public String getBookCode() {
 		return bookCode;
 	}
-	public void setBookCood(String bookCode) {
+	public void setBookCode(String bookCode) {
 		this.bookCode = bookCode;
 	}
 	public String getBookName() {
